@@ -38,7 +38,7 @@ gem install bundler
 
 
 message "Installing php ..."
-sudo add-apt-repository ppa:ondrej/php
+sudo add-apt-repository -y ppa:ondrej/php
 sudo apt update
 sudo apt -y install \
 	php$PHP_VERSION-mysql \
