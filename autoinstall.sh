@@ -15,7 +15,7 @@ message "Adding $USER to sudoers"
 echo "$USER ALL=(ALL) NOPASSWD: ALL" | sudo tee -a /etc/sudoers
 
 message "Installing packages ..."
-sudo apt install postgresql mysql-server ruby git gcc make software-properties-common qt5-qmake 
+sudo apt install postgresql mysql-server ruby git gcc make software-properties-common qt5-qmake ruby ruby-build 
 
 message "Downloading vscode ..."
 wget -O /tmp/vscode.deb https://update.code.visualstudio.com/latest/linux-deb-x64/stable
