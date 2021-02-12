@@ -40,7 +40,7 @@ gem install bundler
 message "Installing php ..."
 sudo add-apt-repository ppa:ondrej/php
 sudo apt update
-sudo -y apt-get install \
+sudo apt -y install \
 	php$PHP_VERSION-mysql \
 	php$PHP_VERSION-curl \
 	php$PHP_VERSION-json \
@@ -49,8 +49,8 @@ sudo -y apt-get install \
 	php$PHP_VERSION-gd \
 	php$PHP_VERSION-cli \
 	php$PHP_VERSION-zip \
-	php$PHP_VERSION-mbstring \ 
-	php$PHP_VERSION-bcmath 
+	php$PHP_VERSION-mbstring \
+	php$PHP_VERSION-bcmath
 
 
 
