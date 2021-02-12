@@ -15,7 +15,7 @@ message "Adding $USER to sudoers"
 echo "$USER ALL=(ALL) NOPASSWD: ALL" | sudo tee -a /etc/sudoers
 
 message "Installing packages ..."
-sudo apt install postgresql mysql-server ruby git gcc make software-properties-common qt5-qmake ruby ruby-build htop 
+sudo apt install -y postgresql mysql-server ruby git gcc make software-properties-common qt5-qmake ruby ruby-build htop 
 
 message "Downloading vscode ..."
 wget -O /tmp/vscode.deb https://update.code.visualstudio.com/latest/linux-deb-x64/stable
@@ -40,7 +40,7 @@ gem install bundler
 message "Installing php ..."
 sudo add-apt-repository ppa:ondrej/php
 sudo apt update
-sudo apt-get install \
+sudo -y apt-get install \
 	php$PHP_VERSION-mysql \
 	php$PHP_VERSION-curl \
 	php$PHP_VERSION-json \
