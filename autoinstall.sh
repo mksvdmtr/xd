@@ -26,8 +26,8 @@ sudo dpkg -i /tmp/vscode.deb
 
 message "Downloading idea"
 mkdir $HOME/bin
-wget https://download.jetbrains.com/idea/ideaIE-${INTELIJ_IDEA_VERSION}.tar.gz -d /tmp/ideaIE-${INTELIJ_IDEA_VERSION}.tar.gz
-tar -C $HOME/bin -xzf /tmp/ideaIE-${INTELIJ_IDEA_VERSION}.tar.gz
+wget -O /tmp/ideaIU-${INTELIJ_IDEA_VERSION}.tar.gz https://download.jetbrains.com/idea/ideaIU-${INTELIJ_IDEA_VERSION}.tar.gz 
+tar -C $HOME/bin -xzf /tmp/ideaIU-${INTELIJ_IDEA_VERSION}.tar.gz
 
 message "Installing rbenv"
 git clone https://github.com/sstephenson/rbenv.git ~/.rbenv
