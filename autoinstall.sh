@@ -12,8 +12,8 @@ function message() {
 	printf "%$(tput cols)s\n"|sed "s/ /#/g"
 }
 
-message "Adding $USER to sudoers"
-echo "$USER ALL=(ALL) NOPASSWD: ALL" | sudo tee -a /etc/sudoers
+message "Adding ${USER} to sudoers"
+echo "${USER} ALL=(ALL) NOPASSWD: ALL" | sudo tee -a /etc/sudoers
 
 message "Installing packages ..."
 sudo apt update && sudo apt upgrade -y
@@ -26,14 +26,14 @@ wget -O /tmp/vscode.deb https://update.code.visualstudio.com/latest/linux-deb-x6
 sudo dpkg -i /tmp/vscode.deb
 
 message "Downloading idea"
-mkdir $HOME/bin
+mkdir ${HOME}/bin
 wget -O /tmp/ideaIU-${INTELIJ_IDEA_VERSION}.tar.gz https://download.jetbrains.com/idea/ideaIU-${INTELIJ_IDEA_VERSION}.tar.gz 
 
 message "Installing idea"
-tar -C $HOME/bin -xzf /tmp/ideaIU-${INTELIJ_IDEA_VERSION}.tar.gz
-mv $HOME/bin/{idea*,Idea} 
+tar -C ${HOME}/bin -xzf /tmp/ideaIU-${INTELIJ_IDEA_VERSION}.tar.gz
+mv ${HOME}/bin/{idea*,Idea} 
 
-cat >> $HOME/Рабочий\ стол/Idea.desktop <<EOF
+cat >> ${HOME}/Рабочий\ стол/Idea.desktop <<EOF
 [Desktop Entry]
 Version=1.0
 Type=Application
@@ -46,26 +46,26 @@ Terminal=false
 StartupNotify=false
 EOF
 
-chmod +x $HOME/Рабочий\ стол/Idea.desktop
+chmod +x ${HOME}/Рабочий\ стол/Idea.desktop
 
 
-wget -O $HOME/bin/reset_jetbrains_eval_linux.sh https://raw.githubusercontent.com/mksvdmtr/xd/master/reset_jetbrains_eval_linux.sh
-chmod +x $HOME/bin/reset_jetbrains_eval_linux.sh
-(crontab -l 2>/dev/null; echo "0 12 * * 3 $HOME/bin/reset_jetbrains_eval_linux.sh") | crontab -
+wget -O ${HOME}/bin/reset_jetbrains_eval_linux.sh https://raw.githubusercontent.com/mksvdmtr/xd/master/reset_jetbrains_eval_linux.sh
+chmod +x ${HOME}/bin/reset_jetbrains_eval_linux.sh
+(crontab -l 2>/dev/null; echo "0 12 * * 3 ${HOME}/bin/reset_jetbrains_eval_linux.sh") | crontab -
 
 
 message "Installing rbenv"
 git clone https://github.com/sstephenson/rbenv.git ~/.rbenv
 git clone https://github.com/sstephenson/ruby-build.git ~/.rbenv/plugins/ruby-build
 
-echo 'export PATH="$HOME/.rbenv/bin:$PATH"' tee -a ~/.bash_profile ~/.bashrc
+echo 'export PATH="${HOME}/.rbenv/bin:$PATH"' tee -a ~/.bash_profile ~/.bashrc
 echo 'eval "$(rbenv init -)"' tee -a ~/.bash_profile ~/.bashrc
 
 message "Installing ruby"
-source $HOME/.bashrc
+source ${HOME}/.bashrc
 eval "$(rbenv init -)"
-rbenv install $RUBY_VERSION
-rbenv global $RUBY_VERSION
+rbenv install ${RUBY_VERSION}
+rbenv global ${RUBY_VERSION}
 gem install bundler
 
 
@@ -73,16 +73,16 @@ message "Installing php ..."
 sudo add-apt-repository -y ppa:ondrej/php
 sudo apt update
 sudo apt -y install \
-	php$PHP_VERSION-mysql \
-	php$PHP_VERSION-curl \
-	php$PHP_VERSION-json \
-	php$PHP_VERSION-cgi \
-	php$PHP_VERSION-xsl \
-	php$PHP_VERSION-gd \
-	php$PHP_VERSION-cli \
-	php$PHP_VERSION-zip \
-	php$PHP_VERSION-mbstring \
-	php$PHP_VERSION-bcmath
+	php${PHP_VERSION}-mysql \
+	php${PHP_VERSION}-curl \
+	php${PHP_VERSION}-json \
+	php${PHP_VERSION}-cgi \
+	php${PHP_VERSION}-xsl \
+	php${PHP_VERSION}-gd \
+	php${PHP_VERSION}-cli \
+	php${PHP_VERSION}-zip \
+	php${PHP_VERSION}-mbstring \
+	php${PHP_VERSION}-bcmath
 
 
 
