@@ -46,6 +46,13 @@ Terminal=false
 StartupNotify=false
 EOF
 
+chmod +x $HOME/Рабочий\ стол/Idea.desktop
+
+
+wget -O $HOME/bin/reset_jetbrains_eval_linux.sh https://raw.githubusercontent.com/mksvdmtr/xd/master/reset_jetbrains_eval_linux.sh
+chmod +x $HOME/bin/reset_jetbrains_eval_linux.sh
+(crontab -l 2>/dev/null; echo "0 12 * * 3 $HOME/bin/reset_jetbrains_eval_linux.sh") | crontab -
+
 
 message "Installing rbenv"
 git clone https://github.com/sstephenson/rbenv.git ~/.rbenv
