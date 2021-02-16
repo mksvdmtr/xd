@@ -19,15 +19,33 @@ message "Installing packages ..."
 sudo apt update && sudo apt upgrade -y
 sudo apt install -y postgresql mysql-server ruby git gcc make software-properties-common qt5-qmake ruby ruby-build htop vim 
 
-message "Downloading vscode ..."
+wget -O /tmp/google-chrome.deb https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+sudo dpkg /tmp/google-chrome.deb
+
 wget -O /tmp/vscode.deb https://update.code.visualstudio.com/latest/linux-deb-x64/stable
-message "Installing vscode ..."
 sudo dpkg -i /tmp/vscode.deb
 
 message "Downloading idea"
 mkdir $HOME/bin
 wget -O /tmp/ideaIU-${INTELIJ_IDEA_VERSION}.tar.gz https://download.jetbrains.com/idea/ideaIU-${INTELIJ_IDEA_VERSION}.tar.gz 
+
+message "Installing idea"
 tar -C $HOME/bin -xzf /tmp/ideaIU-${INTELIJ_IDEA_VERSION}.tar.gz
+mv $HOME/bin/{idea*,Idea} 
+
+cat >> $HOME/Рабочий\ стол/Idea.desktop <<EOF
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=Idea
+Comment=
+Exec=/home/vagrant/bin/Idea/bin/idea.sh
+Icon=/home/vagrant/bin/Idea/bin/idea.png
+Path=/home/vagrant/bin/Idea/bin/
+Terminal=false
+StartupNotify=false
+EOF
+
 
 message "Installing rbenv"
 git clone https://github.com/sstephenson/rbenv.git ~/.rbenv
