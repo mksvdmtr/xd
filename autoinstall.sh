@@ -39,9 +39,9 @@ Version=1.0
 Type=Application
 Name=Idea
 Comment=
-Exec=/home/vagrant/bin/Idea/bin/idea.sh
-Icon=/home/vagrant/bin/Idea/bin/idea.png
-Path=/home/vagrant/bin/Idea/bin/
+Exec=${HOME}/bin/Idea/bin/idea.sh
+Icon=${HOME}/bin/Idea/bin/idea.png
+Path=${HOME}/bin/Idea/bin/
 Terminal=false
 StartupNotify=false
 EOF
@@ -58,8 +58,8 @@ message "Installing rbenv"
 git clone https://github.com/sstephenson/rbenv.git ~/.rbenv
 git clone https://github.com/sstephenson/ruby-build.git ~/.rbenv/plugins/ruby-build
 
-echo 'export PATH="${HOME}/.rbenv/bin:$PATH"' tee -a ~/.bash_profile ~/.bashrc
-echo 'eval "$(rbenv init -)"' tee -a ~/.bash_profile ~/.bashrc
+echo 'export PATH="${HOME}/.rbenv/bin:$PATH"' | tee -a ~/.bash_profile ~/.bashrc
+echo 'eval "$(rbenv init -)"' | tee -a ~/.bash_profile ~/.bashrc
 
 message "Installing ruby"
 source ${HOME}/.bashrc
