@@ -20,7 +20,7 @@ sudo apt update && sudo apt upgrade -y
 sudo apt install -y postgresql mysql-server ruby git gcc make software-properties-common qt5-qmake ruby ruby-build htop vim 
 
 wget -O /tmp/google-chrome.deb https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-sudo dpkg /tmp/google-chrome.deb
+sudo dpkg -i /tmp/google-chrome.deb
 
 wget -O /tmp/vscode.deb https://update.code.visualstudio.com/latest/linux-deb-x64/stable
 sudo dpkg -i /tmp/vscode.deb
