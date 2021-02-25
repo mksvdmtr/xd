@@ -33,7 +33,7 @@ message "Installing idea"
 tar -C ${HOME}/bin -xzf /tmp/ideaIU-${INTELIJ_IDEA_VERSION}.tar.gz
 mv ${HOME}/bin/{idea*,Idea} 
 
-cat >> ${HOME}/Рабочий\ стол/Idea.desktop <<EOF
+cat >> ${HOME}/Рабочий\ стол/Idea.desktop <<ENDCONFIG
 [Desktop Entry]
 Version=1.0
 Type=Application
@@ -44,7 +44,7 @@ Icon=${HOME}/bin/Idea/bin/idea.png
 Path=${HOME}/bin/Idea/bin/
 Terminal=false
 StartupNotify=false
-EOF
+ENDCONFIG
 
 chmod +x ${HOME}/Рабочий\ стол/Idea.desktop
 
