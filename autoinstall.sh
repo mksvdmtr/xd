@@ -17,7 +17,7 @@ echo "${USER} ALL=(ALL) NOPASSWD: ALL" | sudo tee -a /etc/sudoers
 
 message "Installing packages ..."
 sudo apt update && sudo apt upgrade -y
-sudo apt install -y postgresql mysql-server ruby git gcc make software-properties-common qt5-qmake ruby ruby-build htop vim 
+sudo apt install -y postgresql mysql-server ruby git gcc make software-properties-common qt5-qmake ruby ruby-build htop vim imagemagick
 
 wget -O /tmp/google-chrome.deb https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
 sudo dpkg -i /tmp/google-chrome.deb
@@ -48,7 +48,7 @@ ENDCONFIG
 
 chmod +x ${HOME}/Рабочий\ стол/Idea.desktop
 
-
+mkdir ${HOME}/bin
 wget -O ${HOME}/bin/reset_jetbrains_eval_linux.sh https://raw.githubusercontent.com/mksvdmtr/xd/master/reset_jetbrains_eval_linux.sh
 chmod +x ${HOME}/bin/reset_jetbrains_eval_linux.sh
 (crontab -l 2>/dev/null; echo "0 12 * * 3 ${HOME}/bin/reset_jetbrains_eval_linux.sh") | crontab -
@@ -72,17 +72,7 @@ gem install bundler
 message "Installing php ..."
 sudo add-apt-repository -y ppa:ondrej/php
 sudo apt update
-sudo apt -y install \
-	php${PHP_VERSION}-mysql \
-	php${PHP_VERSION}-curl \
-	php${PHP_VERSION}-json \
-	php${PHP_VERSION}-cgi \
-	php${PHP_VERSION}-xsl \
-	php${PHP_VERSION}-gd \
-	php${PHP_VERSION}-cli \
-	php${PHP_VERSION}-zip \
-	php${PHP_VERSION}-mbstring \
-	php${PHP_VERSION}-bcmath
+sudo apt -y install php${PHP_VERSION}-{mysql,curl,json,cgi,xsl,gd,cli,xml,zip,mbstring,bcmath,imagick}
 
 
 
