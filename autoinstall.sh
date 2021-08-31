@@ -3,8 +3,7 @@
 set -euo pipefail
 
 PHP_VERSION=7.4
-RUBY_VERSION=2.7.2
-INTELIJ_IDEA_VERSION=2020.3.2
+RUBY_VERSION=2.7.4
 
 function message() {
 	printf "%$(tput cols)s\n"|sed "s/ /#/g"
@@ -25,33 +24,6 @@ sudo dpkg -i /tmp/google-chrome.deb
 wget -O /tmp/vscode.deb https://update.code.visualstudio.com/latest/linux-deb-x64/stable
 sudo dpkg -i /tmp/vscode.deb
 
-message "Downloading idea"
-mkdir ${HOME}/bin
-wget -O /tmp/ideaIU-${INTELIJ_IDEA_VERSION}.tar.gz https://download.jetbrains.com/idea/ideaIU-${INTELIJ_IDEA_VERSION}.tar.gz 
-
-message "Installing idea"
-tar -C ${HOME}/bin -xzf /tmp/ideaIU-${INTELIJ_IDEA_VERSION}.tar.gz
-mv ${HOME}/bin/{idea*,Idea} 
-
-cat >> ${HOME}/Рабочий\ стол/Idea.desktop <<ENDCONFIG
-[Desktop Entry]
-Version=1.0
-Type=Application
-Name=Idea
-Comment=
-Exec=${HOME}/bin/Idea/bin/idea.sh
-Icon=${HOME}/bin/Idea/bin/idea.png
-Path=${HOME}/bin/Idea/bin/
-Terminal=false
-StartupNotify=false
-ENDCONFIG
-
-chmod +x ${HOME}/Рабочий\ стол/Idea.desktop
-
-mkdir ${HOME}/bin
-wget -O ${HOME}/bin/reset_jetbrains_eval_linux.sh https://raw.githubusercontent.com/mksvdmtr/xd/master/reset_jetbrains_eval_linux.sh
-chmod +x ${HOME}/bin/reset_jetbrains_eval_linux.sh
-(crontab -l 2>/dev/null; echo "0 12 * * 3 ${HOME}/bin/reset_jetbrains_eval_linux.sh") | crontab -
 
 
 message "Installing rbenv"
@@ -72,7 +44,8 @@ gem install bundler
 message "Installing php ..."
 sudo add-apt-repository -y ppa:ondrej/php
 sudo apt update
-sudo apt -y install php${PHP_VERSION}-{mysql,curl,json,cgi,xsl,gd,cli,xml,zip,mbstring,bcmath,imagick}
+sudo apt -y install php${PHP_VERSION}-{mysql,curl,json,cgi,xsl,gd,cli,xml,zip,mbstring,bcmath,imagick,pear,dev,propro,raphf}
+sudo pecl install pecl_http-3.2.4
 
 
 
