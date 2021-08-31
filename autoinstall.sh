@@ -44,8 +44,8 @@ gem install bundler
 message "Installing php ..."
 sudo add-apt-repository -y ppa:ondrej/php
 sudo apt update
-sudo apt -y install php${PHP_VERSION}-{mysql,curl,json,cgi,xsl,gd,cli,xml,zip,mbstring,bcmath,imagick,pear,dev,propro,raphf}
-sudo pecl install pecl_http-3.2.4
+sudo apt -y install php${PHP_VERSION}-{mysql,curl,json,cgi,xsl,gd,cli,xml,zip,mbstring,bcmath,imagick,dev,propro,raphf}
+printf "\n" | sudo pecl install pecl_http-3.2.4
 
 
 
